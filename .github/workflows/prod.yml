@@ -1,0 +1,19 @@
+name: Production
+on:
+  push:
+    branches: [ prod ]
+
+jobs:
+  build:
+    runs-on: ideaux-pro
+   
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v3
+        with:
+          path: "prod"
+         
+      - name: Install Packages & Setup
+        run: |
+         sudo service business restart
+         sudo service nginx restart
