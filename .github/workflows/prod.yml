@@ -15,5 +15,7 @@ jobs:
          
       - name: Install Packages & Setup
         run: |
-         sudo service business restart
+         cd main
+         mvn clean install
+         sudo service billing restart
          sudo service nginx restart
